@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dq2or3clx26d2"
-path="res://.godot/imported/player_atlas.png-62da0a90542d275ca6f469b4281c550e.ctex"
+uid="uid://btqckb3bv87is"
+path="res://.godot/imported/chair_atlas.png-1d1e351d56fbc76dc9a915971eab82a6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/player_atlas.png"
-dest_files=["res://.godot/imported/player_atlas.png-62da0a90542d275ca6f469b4281c550e.ctex"]
+source_file="res://assets/textures/chair_atlas.png"
+dest_files=["res://.godot/imported/chair_atlas.png-1d1e351d56fbc76dc9a915971eab82a6.ctex"]
 
 [params]
 
