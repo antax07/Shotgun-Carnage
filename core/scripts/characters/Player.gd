@@ -19,6 +19,8 @@ extends RigidBody2D
 @onready var animation_player = $AnimationPlayer
 @onready var muzzle_flash = $ChairSprite/PlayerSprite/MuzzleFlash
 @onready var muzzle_tip = $ChairSprite/PlayerSprite/MuzzleTip
+@onready var fire_sound = $Fire
+@onready var click_sound = $Click
 
 var can_shoot = true
 var aiming_direction = 0.0
@@ -26,6 +28,7 @@ var can_tip_toe = true
 var shots_fired = 0
 var bullets_loaded = magazine_size
 var projectile_scene = null
+var reloading = false
 
 func _ready():
 	projectile_scene = load(projectile_scene_path)
@@ -34,8 +37,9 @@ func _ready():
 func _process(delta):
 	handle_aiming(delta)
 	handle_rotation(delta)
-	if Input.is_action_just_pressed("shoot") and can_shoot:
-		shoot()
+	if Input.is_action_just_pressed("shoot"):
+		if can_shoot:
+			shoot()
 
 func handle_aiming(delta):
 	var chair_rotation = chair_sprite.global_rotation_degrees
@@ -91,13 +95,15 @@ func _integrate_forces(state):
 
 func shoot():
 	if bullets_loaded <= 0:
-		reload_animation()
+		if not reloading:
+			click_sound.play()
 		return
 	
 	can_shoot = false
 	
 	muzzle_flash.visible = true
 	animation_player.play("fire")
+	fire_sound.play()
 	fire_projectiles()
 
 	var local_recoil_vector = Vector2(-cos(deg_to_rad(aiming_direction)), -sin(deg_to_rad(aiming_direction))) * recoil
@@ -129,8 +135,10 @@ func fire_projectiles():
 		get_parent().add_child(projectile_instance)
 
 func reload_animation():
+	reloading = true
 	animation_player.play("reload")
 	await get_tree().create_timer(reload_time).timeout
 	bullets_loaded = magazine_size
+	reloading = false
 	can_shoot = true
 	animation_player.play("idle")
