@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3w0o8i60ogit"]
+
+[ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_b4y6d"]
+[ext_resource type="Texture2D" uid="uid://dl4vx30km3v42" path="res://icon.svg" id="2_xblqj"]
+[ext_resource type="Script" path="res://gun.gd" id="3_4vhth"]
+
+[node name="Player" type="Node2D"]
+
+[node name="Stol" type="CharacterBody2D" parent="."]
+position = Vector2(541, 289)
+scale = Vector2(0.626147, 0.521293)
+script = ExtResource("1_b4y6d")
+
+[node name="Sprite2D" type="Sprite2D" parent="Stol"]
+position = Vector2(-3, -4)
+texture = ExtResource("2_xblqj")
+
+[node name="Node2D" type="Node2D" parent="Stol"]
+script = ExtResource("3_4vhth")
+
+[node name="Sprite2D" type="Sprite2D" parent="Stol/Node2D"]
+position = Vector2(71.8681, 0)
+scale = Vector2(1.25553, 0.155944)
+texture = ExtResource("2_xblqj")
