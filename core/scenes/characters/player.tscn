@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://f3lio3xv046c"]
+[gd_scene load_steps=9 format=3 uid="uid://f3lio3xv046c"]
 
 [ext_resource type="Script" path="res://core/scripts/characters/Player.gd" id="1_dint0"]
 [ext_resource type="Texture2D" uid="uid://dq2or3clx26d2" path="res://assets/textures/player_atlas.png" id="2_15t1v"]
@@ -79,9 +79,6 @@ _data = {
 "reload": SubResource("Animation_kra37")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_gp4bn"]
-radius = 12.0
-
 [node name="Player" type="RigidBody2D"]
 gravity_scale = 0.0
 script = ExtResource("1_dint0")
@@ -102,9 +99,9 @@ libraries = {
 }
 autoplay = "idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_gp4bn")
-
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.5, 1.5)
 position_smoothing_enabled = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-21, -14, -21, 13, 9, 11, 16, 8, 32, 5, 32, 2, 19, 0, 14, -8, 0, -14)
