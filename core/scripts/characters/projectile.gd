@@ -11,5 +11,6 @@ func _process(delta):
 	position += velocity * delta
 
 func _on_body_entered(body):
-	pass
-	#queue_free()  # Remove the projectile on collision
+	print(body.name)
+	if body.has_method("take_damage"):
+		body.take_damage(10)
