@@ -1,13 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://f3lio3xv046c"]
+[gd_scene load_steps=12 format=3 uid="uid://f3lio3xv046c"]
 
 [ext_resource type="Script" path="res://core/scripts/characters/Player.gd" id="1_dint0"]
 [ext_resource type="Texture2D" uid="uid://dq2or3clx26d2" path="res://assets/textures/player_atlas.png" id="2_15t1v"]
 [ext_resource type="Texture2D" uid="uid://btqckb3bv87is" path="res://assets/textures/chair_atlas.png" id="2_niuaa"]
 [ext_resource type="Texture2D" uid="uid://nghwia0t42kq" path="res://assets/textures/muzzle_flash.png" id="4_bucvw"]
-[ext_resource type="Texture2D" uid="uid://tbgo0v3153wc" path="res://assets/textures/light.png" id="5_1f2nq"]
 [ext_resource type="AudioStream" uid="uid://uj2yhlwgph63" path="res://assets/audio/sfx/shotgun_click.mp3" id="5_o3ya3"]
 [ext_resource type="AudioStream" uid="uid://byf4ghm5b7d5f" path="res://assets/audio/sfx/shotgun.mp3" id="5_u5h54"]
-[ext_resource type="Texture2D" uid="uid://dtch4gk6wrccb" path="res://assets/textures/flashlight.png" id="5_wo0oq"]
 
 [sub_resource type="Animation" id="Animation_fqic1"]
 length = 0.001
@@ -106,34 +104,8 @@ position = Vector2(39, 4)
 scale = Vector2(0.0561301, 0.0561301)
 texture = ExtResource("4_bucvw")
 
-[node name="MuzzleLight" type="PointLight2D" parent="ChairSprite/PlayerSprite/MuzzleFlash"]
-position = Vector2(-694.814, -71.263)
-scale = Vector2(17.8158, 17.8158)
-color = Color(0.930486, 0.920042, 0.740367, 1)
-energy = 2.42
-shadow_enabled = true
-texture = ExtResource("5_1f2nq")
-texture_scale = 1.45
-
 [node name="MuzzleTip" type="Marker2D" parent="ChairSprite/PlayerSprite"]
 position = Vector2(32, 3)
-
-[node name="PointLight2D2" type="PointLight2D" parent="ChairSprite/PlayerSprite"]
-rotation = -1.33991e-05
-scale = Vector2(1.88, 1)
-energy = 0.65
-shadow_enabled = true
-texture = ExtResource("5_wo0oq")
-offset = Vector2(92.25, 0)
-texture_scale = 0.4
-
-[node name="PointLight2D3" type="PointLight2D" parent="ChairSprite/PlayerSprite"]
-rotation = -1.33991e-05
-scale = Vector2(1.88, 1)
-energy = 0.05
-texture = ExtResource("5_wo0oq")
-offset = Vector2(92.25, 0)
-texture_scale = 0.4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -146,7 +118,6 @@ zoom = Vector2(1.5, 1.5)
 position_smoothing_enabled = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-scale = Vector2(-0.503481, -0.503481)
 polygon = PackedVector2Array(-16, -9, -15, 9, 9, 11, 20, 3, 14, -8, 0, -14)
 
 [node name="Click" type="AudioStreamPlayer2D" parent="."]
