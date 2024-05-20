@@ -100,7 +100,8 @@ libraries = {
 autoplay = "idle"
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.5, 1.5)
+scale = Vector2(0.355292, 0.264535)
+zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
