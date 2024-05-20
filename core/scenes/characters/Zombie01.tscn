@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bq5qms0hvqmi1"]
+
+[ext_resource type="Script" path="res://core/scripts/characters/ZOmbie.gd" id="1_1mn0e"]
+[ext_resource type="Texture2D" uid="uid://dl4vx30km3v42" path="res://icon.svg" id="2_y2yju"]
+
+[node name="Zombie01" type="Node2D"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+script = ExtResource("1_1mn0e")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+position = Vector2(-1, 0)
+texture = ExtResource("2_y2yju")
