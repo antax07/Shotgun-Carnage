@@ -9,7 +9,7 @@ extends RigidBody2D
 @export var tip_toe_interval = 1.0
 @export var tip_toe_impulse = 1.5
 @export var projectile_scene_path = "res://core/scenes/characters/projectile.tscn"
-@export var fire_animation_time = 0.4
+@export var fire_animation_time = 0.2
 @export var magazine_size = 2
 @export var pellets_per_shot = 5 
 @export var spread_angle = 10.0
