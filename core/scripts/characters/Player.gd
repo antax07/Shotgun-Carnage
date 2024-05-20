@@ -1,24 +1,34 @@
 extends RigidBody2D
 
-@export var aiming_cone_angle = 80.0
+@export var aiming_cone_angle = 60.0
 @export var recoil = 100.0
-@export var rotation_force = 0.15
+@export var rotation_force = 0.1
 @export var reload_time = 1.6
 @export var linear_friction = 25.0
 @export var angular_friction = 1.0
 @export var tip_toe_interval = 1.0
 @export var tip_toe_impulse = 1.5
+@export var projectile_scene_path = "res://core/scenes/characters/projectile.tscn"
+@export var fire_animation_time = 0.4
+@export var magazine_size = 2
+@export var pellets_per_shot = 5 
+@export var spread_angle = 10.0
 
 @onready var chair_sprite = $ChairSprite
 @onready var player_sprite = $ChairSprite/PlayerSprite
 @onready var animation_player = $AnimationPlayer
+@onready var muzzle_flash = $ChairSprite/PlayerSprite/MuzzleFlash
+@onready var muzzle_tip = $ChairSprite/PlayerSprite/MuzzleTip
 
 var can_shoot = true
 var aiming_direction = 0.0
 var can_tip_toe = true
 var shots_fired = 0
+var bullets_loaded = magazine_size
+var projectile_scene = null
 
 func _ready():
+	projectile_scene = load(projectile_scene_path)
 	animation_player.play("idle")
 
 func _process(delta):
@@ -80,28 +90,47 @@ func _integrate_forces(state):
 			angular_velocity += friction_torque
 
 func shoot():
+	if bullets_loaded <= 0:
+		reload_animation()
+		return
+	
+	can_shoot = false
+	
+	muzzle_flash.visible = true
+	animation_player.play("fire")
+	fire_projectiles()
+
 	var local_recoil_vector = Vector2(-cos(deg_to_rad(aiming_direction)), -sin(deg_to_rad(aiming_direction))) * recoil
 	var global_recoil_vector = self.to_global(local_recoil_vector) - self.global_position
-
 	apply_central_impulse(global_recoil_vector)
 	
 	var rotational_impact = aiming_direction * rotation_force
 	angular_velocity -= rotational_impact
-	
-	animation_player.play("fire")
-	await get_tree().create_timer(0.4).timeout
-	animation_player.play("idle")
-	
-	shots_fired += 1
-	if shots_fired >= 2:
-		can_shoot = false
-		shots_fired = 0
+
+	await get_tree().create_timer(fire_animation_time).timeout
+	muzzle_flash.visible = false
+
+	bullets_loaded -= 1
+	if bullets_loaded <= 0:
 		reload_animation()
-		await get_tree().create_timer(reload_time).timeout
-		can_shoot = true
-		animation_player.play("idle")
 	else:
 		can_shoot = true
 
+func fire_projectiles():
+	for i in range(pellets_per_shot):
+		var projectile_instance = projectile_scene.instantiate()
+		projectile_instance.position = muzzle_tip.global_position
+		
+		var spread = randf_range(-spread_angle / 2, spread_angle / 2)
+		var global_rotation = player_sprite.global_rotation + deg_to_rad(spread)
+		var direction = Vector2(cos(global_rotation), sin(global_rotation)).normalized()
+		projectile_instance.velocity = direction * projectile_instance.speed
+		
+		get_parent().add_child(projectile_instance)
+
 func reload_animation():
 	animation_player.play("reload")
+	await get_tree().create_timer(reload_time).timeout
+	bullets_loaded = magazine_size
+	can_shoot = true
+	animation_player.play("idle")
