@@ -21,6 +21,7 @@ extends RigidBody2D
 @onready var muzzle_tip = $ChairSprite/PlayerSprite/MuzzleTip
 @onready var fire_sound = $Fire
 @onready var click_sound = $Click
+@onready var muzzle_light = $ChairSprite/PlayerSprite/MuzzleFlash/MuzzleLight
 
 var can_shoot = true
 var aiming_direction = 0.0
@@ -33,6 +34,7 @@ var reloading = false
 func _ready():
 	projectile_scene = load(projectile_scene_path)
 	animation_player.play("idle")
+	#scale = Vector2(0.5, 0.5)
 
 func _process(delta):
 	handle_aiming(delta)
@@ -102,6 +104,7 @@ func shoot():
 	can_shoot = false
 	
 	muzzle_flash.visible = true
+	muzzle_light.visible = true
 	animation_player.play("fire")
 	fire_sound.play()
 	fire_projectiles()
@@ -115,6 +118,7 @@ func shoot():
 
 	await get_tree().create_timer(fire_animation_time).timeout
 	muzzle_flash.visible = false
+	muzzle_light.visible = false
 
 	bullets_loaded -= 1
 	if bullets_loaded <= 0:
