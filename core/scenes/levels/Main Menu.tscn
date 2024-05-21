@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://v05napf66g1q"]
 
 [ext_resource type="Texture2D" uid="uid://crmsecu3mkh3p" path="res://assets/textures/Main menu.png" id="1_6bh6v"]
-[ext_resource type="Script" path="res://core/scripts/PlayButton.gd" id="2_brvda"]
+[ext_resource type="Script" path="res://core/scripts/gameplay/PlayButton.gd" id="2_brvda"]
 
 [node name="MainMenu" type="Node2D"]
 
