@@ -132,11 +132,18 @@ sprite_frames = SubResource("SpriteFrames_peqwt")
 autoplay = "default"
 
 [node name="PlayerSprite" type="Sprite2D" parent="ChairSprite"]
+<<<<<<< HEAD
 position = Vector2(8.615, 0)
 scale = Vector2(1.00048, 0.992975)
 texture = ExtResource("3_u74dv")
 hframes = 2
 vframes = 6
+=======
+rotation = 6.28319
+texture = ExtResource("2_15t1v")
+hframes = 4
+vframes = 5
+>>>>>>> 0092ed83ff8bf90faba0bfee7364c5edeabccca5
 
 [node name="MuzzleFlash" type="Sprite2D" parent="ChairSprite/PlayerSprite"]
 position = Vector2(21.4243, 2.56358)

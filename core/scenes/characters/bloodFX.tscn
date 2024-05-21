@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://df0pc3kn3r2dv"]
+[gd_scene load_steps=3 format=3 uid="uid://1e83x1wr1u4v"]
 
 [ext_resource type="Texture2D" uid="uid://de2wbj110btn8" path="res://assets/textures/blood.png" id="1_byvsx"]
+<<<<<<< HEAD
 [ext_resource type="Script" path="res://core/scripts/gameplay/bloodFX.gd" id="2_0v0wr"]
+=======
+[ext_resource type="Script" path="res://core/scenes/characters/bloodFX.gd" id="2_0v0wr"]
+>>>>>>> 0092ed83ff8bf90faba0bfee7364c5edeabccca5
 
 [node name="BloodFx" type="CPUParticles2D"]
 amount = 50
