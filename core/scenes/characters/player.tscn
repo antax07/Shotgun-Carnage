@@ -1,12 +1,12 @@
 [gd_scene load_steps=14 format=3 uid="uid://f3lio3xv046c"]
 
 [ext_resource type="Script" path="res://core/scripts/characters/Player.gd" id="1_dint0"]
-[ext_resource type="Texture2D" uid="uid://dq2or3clx26d2" path="res://assets/textures/player_atlas.png" id="2_15t1v"]
-[ext_resource type="Texture2D" uid="uid://btqckb3bv87is" path="res://assets/textures/chair_atlas.png" id="2_niuaa"]
-[ext_resource type="Texture2D" uid="uid://nghwia0t42kq" path="res://assets/textures/muzzle_flash.png" id="4_bucvw"]
+[ext_resource type="Texture2D" uid="uid://bbuyj2ngmt58h" path="res://assets/textures/player_atlas.png" id="2_15t1v"]
+[ext_resource type="Texture2D" uid="uid://b4igwnf4336is" path="res://assets/textures/chair_atlas.png" id="2_niuaa"]
+[ext_resource type="Texture2D" uid="uid://bnjj4yurcuq8w" path="res://assets/textures/muzzle_flash.png" id="4_bucvw"]
 [ext_resource type="Texture2D" uid="uid://tbgo0v3153wc" path="res://assets/textures/light.png" id="5_1f2nq"]
-[ext_resource type="AudioStream" uid="uid://uj2yhlwgph63" path="res://assets/audio/sfx/shotgun_click.mp3" id="5_o3ya3"]
-[ext_resource type="AudioStream" uid="uid://byf4ghm5b7d5f" path="res://assets/audio/sfx/shotgun.mp3" id="5_u5h54"]
+[ext_resource type="AudioStream" uid="uid://sdyw31u6o1yy" path="res://assets/audio/sfx/shotgun_click.mp3" id="5_o3ya3"]
+[ext_resource type="AudioStream" uid="uid://cxgll47lqel1r" path="res://assets/audio/sfx/shotgun.mp3" id="5_u5h54"]
 [ext_resource type="Texture2D" uid="uid://dtch4gk6wrccb" path="res://assets/textures/flashlight.png" id="5_wo0oq"]
 
 [sub_resource type="Animation" id="Animation_fqic1"]
