@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://core/scripts/characters/ZOmbie.gd" id="1_1mn0e"]
 [ext_resource type="Texture2D" uid="uid://dl4vx30km3v42" path="res://icon.svg" id="2_y2yju"]
-[ext_resource type="AudioStream" uid="uid://b32v25rytlcb8" path="res://core/scenes/characters/slime_001-[AudioTrimmer.com]-[AudioTrimmer.com].ogg" id="3_vmf3l"]
+[ext_resource type="AudioStream" uid="uid://b32v25rytlcb8" path="res://assets/audio/sfx/slime_001-[AudioTrimmer.com]-[AudioTrimmer.com].ogg" id="3_b0iss"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ssq05"]
 radius = 15.0333
@@ -29,6 +29,6 @@ wait_time = 0.5
 autostart = true
 
 [node name="DeathSFX" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_vmf3l")
+stream = ExtResource("3_b0iss")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
