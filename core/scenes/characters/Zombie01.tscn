@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bq5qms0hvqmi1"]
+[gd_scene load_steps=5 format=3 uid="uid://bq5qms0hvqmi1"]
 
 [ext_resource type="Script" path="res://core/scripts/characters/ZOmbie.gd" id="1_1mn0e"]
 [ext_resource type="Texture2D" uid="uid://dl4vx30km3v42" path="res://icon.svg" id="2_y2yju"]
+[ext_resource type="AudioStream" uid="uid://b32v25rytlcb8" path="res://core/scenes/characters/slime_001-[AudioTrimmer.com]-[AudioTrimmer.com].ogg" id="3_vmf3l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ssq05"]
 radius = 15.0333
@@ -22,10 +23,12 @@ position = Vector2(-1, 0)
 shape = SubResource("CircleShape2D_ssq05")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-debug_enabled = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true
+
+[node name="DeathSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_vmf3l")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

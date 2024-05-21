@@ -96,7 +96,6 @@ vframes = 5
 
 [node name="PlayerSprite" type="Sprite2D" parent="ChairSprite"]
 rotation = 6.28319
-scale = Vector2(1.00048, 0.992975)
 texture = ExtResource("2_15t1v")
 hframes = 4
 vframes = 5
