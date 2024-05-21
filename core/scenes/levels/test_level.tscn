@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cx6nte42ob0ve"]
+[gd_scene load_steps=9 format=3 uid="uid://cx6nte42ob0ve"]
 
 [ext_resource type="PackedScene" uid="uid://d27sut8f0xqsd" path="res://core/scenes/environment/test_obstacle.tscn" id="1_0ao7x"]
 [ext_resource type="PackedScene" uid="uid://f3lio3xv046c" path="res://core/scenes/characters/player.tscn" id="2_6gcp0"]
@@ -31,6 +31,12 @@ occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 3
 physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_qdeld")
+
+[sub_resource type="Environment" id="Environment_nyc5u"]
+background_mode = 3
+adjustment_enabled = true
+adjustment_contrast = 1.08
+adjustment_saturation = 0.68
 
 [node name="TestLevel" type="Node2D"]
 
@@ -67,3 +73,6 @@ color = Color(0.999999, 0.827432, 0.80188, 1)
 energy = 0.42
 texture = ExtResource("3_aefk0")
 texture_scale = 0.65
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_nyc5u")
