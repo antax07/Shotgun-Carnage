@@ -1,12 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://f3lio3xv046c"]
+[gd_scene load_steps=16 format=3 uid="uid://du6s5pqinxoyi"]
 
 [ext_resource type="Script" path="res://core/scripts/characters/Player.gd" id="1_dint0"]
 [ext_resource type="Texture2D" uid="uid://cu1nb352abg4u" path="res://assets/textures/shopingcart.png" id="2_uid8l"]
 [ext_resource type="Texture2D" uid="uid://btkq81krru4lw" path="res://assets/textures/player_atlas2-sheet.png" id="3_0f4ot"]
 [ext_resource type="Texture2D" uid="uid://bnjj4yurcuq8w" path="res://assets/textures/muzzle_flash.png" id="4_bucvw"]
 [ext_resource type="AudioStream" uid="uid://cxgll47lqel1r" path="res://assets/audio/sfx/shotgun.mp3" id="5_u5h54"]
-[ext_resource type="Texture2D" uid="uid://duhy6bwlgux5x" path="res://assets/textures/blood_tank_ui.png" id="6_a5g14"]
-[ext_resource type="Texture2D" uid="uid://dwc0h0lmsn11b" path="res://assets/textures/blood_tank_blood_ui1.png" id="7_42gxb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oeia2"]
 atlas = ExtResource("2_uid8l")
@@ -159,19 +157,3 @@ polygon = PackedVector2Array(-16, -9, -15, 9, 9, 11, 20, 3, 14, -8, 0, -14)
 
 [node name="Fire" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_u5h54")
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
-offset_left = 248.0
-offset_top = -156.0
-offset_right = 314.0
-offset_bottom = -92.0
-value = 100.0
-fill_mode = 3
-texture_progress = ExtResource("7_42gxb")
-
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_left = 248.0
-offset_top = -156.0
-offset_right = 280.0
-offset_bottom = -92.0
-texture = ExtResource("6_a5g14")
