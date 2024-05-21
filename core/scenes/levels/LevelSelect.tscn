@@ -2,8 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://dkk2bleqqfsjc" path="res://assets/textures/roguelikeSheet_transparent.png" id="1_n5mgo"]
 [ext_resource type="Texture2D" uid="uid://dnfhor11nb1to" path="res://assets/textures/roguelikeDungeon_transparent.png" id="2_tien7"]
+<<<<<<< Updated upstream
 [ext_resource type="PackedScene" uid="uid://f3lio3xv046c" path="res://core/scenes/characters/player.tscn" id="3_xuk2r"]
 [ext_resource type="Script" path="res://core/scenes/levels/Level1Select.gd" id="4_ps3bd"]
+=======
+[ext_resource type="PackedScene" uid="uid://du6s5pqinxoyi" path="res://core/scenes/characters/player.tscn" id="3_xuk2r"]
+>>>>>>> Stashed changes
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_scaql"]
 texture = ExtResource("1_n5mgo")

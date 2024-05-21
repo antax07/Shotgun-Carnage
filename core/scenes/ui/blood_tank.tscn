@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnyk5y3yb6awo"]
+
+[ext_resource type="Texture2D" uid="uid://dwc0h0lmsn11b" path="res://assets/textures/blood_tank_blood_ui1.png" id="1_ilr68"]
+[ext_resource type="Texture2D" uid="uid://duhy6bwlgux5x" path="res://assets/textures/blood_tank_ui.png" id="2_16igq"]
+
+[node name="BloodTank" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = -17.0
+offset_top = -30.0
+offset_right = 49.0
+offset_bottom = 34.0
+value = 100.0
+fill_mode = 3
+texture_progress = ExtResource("1_ilr68")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -17.0
+offset_top = -30.0
+offset_right = 15.0
+offset_bottom = 34.0
+texture = ExtResource("2_16igq")
