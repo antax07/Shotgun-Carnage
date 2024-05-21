@@ -1,48 +1,13 @@
-[gd_scene load_steps=18 format=3 uid="uid://f3lio3xv046c"]
+[gd_scene load_steps=14 format=3 uid="uid://f3lio3xv046c"]
 
 [ext_resource type="Script" path="res://core/scripts/characters/Player.gd" id="1_dint0"]
-[ext_resource type="Texture2D" uid="uid://cu1nb352abg4u" path="res://assets/textures/shopingcart.png" id="2_uid8l"]
-[ext_resource type="Texture2D" uid="uid://btkq81krru4lw" path="res://assets/textures/player_atlas2-sheet.png" id="3_0f4ot"]
-[ext_resource type="Texture2D" uid="uid://bnjj4yurcuq8w" path="res://assets/textures/muzzle_flash.png" id="4_bucvw"]
-[ext_resource type="AudioStream" uid="uid://cxgll47lqel1r" path="res://assets/audio/sfx/shotgun.mp3" id="5_u5h54"]
-[ext_resource type="Texture2D" uid="uid://duhy6bwlgux5x" path="res://assets/textures/blood_tank_ui.png" id="6_a5g14"]
-[ext_resource type="Texture2D" uid="uid://dwc0h0lmsn11b" path="res://assets/textures/blood_tank_blood_ui1.png" id="7_42gxb"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oeia2"]
-atlas = ExtResource("2_uid8l")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pimet"]
-atlas = ExtResource("2_uid8l")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hoohi"]
-atlas = ExtResource("2_uid8l")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c5x7r"]
-atlas = ExtResource("2_uid8l")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_peqwt"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oeia2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pimet")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hoohi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c5x7r")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[ext_resource type="Texture2D" uid="uid://dq2or3clx26d2" path="res://assets/textures/player_atlas.png" id="2_15t1v"]
+[ext_resource type="Texture2D" uid="uid://btqckb3bv87is" path="res://assets/textures/chair_atlas.png" id="2_niuaa"]
+[ext_resource type="Texture2D" uid="uid://nghwia0t42kq" path="res://assets/textures/muzzle_flash.png" id="4_bucvw"]
+[ext_resource type="Texture2D" uid="uid://tbgo0v3153wc" path="res://assets/textures/light.png" id="5_1f2nq"]
+[ext_resource type="AudioStream" uid="uid://uj2yhlwgph63" path="res://assets/audio/sfx/shotgun_click.mp3" id="5_o3ya3"]
+[ext_resource type="AudioStream" uid="uid://byf4ghm5b7d5f" path="res://assets/audio/sfx/shotgun.mp3" id="5_u5h54"]
+[ext_resource type="Texture2D" uid="uid://dtch4gk6wrccb" path="res://assets/textures/flashlight.png" id="5_wo0oq"]
 
 [sub_resource type="Animation" id="Animation_fqic1"]
 length = 0.001
@@ -73,7 +38,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [4, 3]
+"values": [3, 4]
 }
 
 [sub_resource type="Animation" id="Animation_l40bs"]
@@ -108,7 +73,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [4, 5, 6, 7, 8, 9, 10]
+"values": [4, 5, 6, 7, 8, 10, 11]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qqyyj"]
@@ -124,24 +89,51 @@ z_index = 10
 gravity_scale = 0.0
 script = ExtResource("1_dint0")
 
-[node name="ChairSprite" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_peqwt")
-autoplay = "default"
+[node name="ChairSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_niuaa")
+hframes = 4
+vframes = 5
 
 [node name="PlayerSprite" type="Sprite2D" parent="ChairSprite"]
-position = Vector2(8.615, 0)
-scale = Vector2(1.00048, 0.992975)
-texture = ExtResource("3_0f4ot")
-hframes = 2
-vframes = 6
+rotation = 6.28319
+texture = ExtResource("2_15t1v")
+hframes = 4
+vframes = 5
 
 [node name="MuzzleFlash" type="Sprite2D" parent="ChairSprite/PlayerSprite"]
-position = Vector2(21.4243, 2.56358)
-scale = Vector2(0.0463513, 0.0439184)
+visible = false
+position = Vector2(39, 4)
+scale = Vector2(0.0561301, 0.0561301)
 texture = ExtResource("4_bucvw")
 
+[node name="MuzzleLight" type="PointLight2D" parent="ChairSprite/PlayerSprite/MuzzleFlash"]
+position = Vector2(-694.814, -71.263)
+scale = Vector2(17.8158, 17.8158)
+color = Color(0.930486, 0.920042, 0.740367, 1)
+energy = 2.42
+shadow_enabled = true
+texture = ExtResource("5_1f2nq")
+texture_scale = 1.45
+
 [node name="MuzzleTip" type="Marker2D" parent="ChairSprite/PlayerSprite"]
-position = Vector2(16.3771, 2.01408)
+position = Vector2(32, 3)
+
+[node name="PointLight2D2" type="PointLight2D" parent="ChairSprite/PlayerSprite"]
+rotation = -1.33991e-05
+scale = Vector2(1.88, 1)
+energy = 0.65
+shadow_enabled = true
+texture = ExtResource("5_wo0oq")
+offset = Vector2(92.25, 0)
+texture_scale = 0.4
+
+[node name="PointLight2D3" type="PointLight2D" parent="ChairSprite/PlayerSprite"]
+rotation = -1.33991e-05
+scale = Vector2(1.88, 1)
+energy = 0.05
+texture = ExtResource("5_wo0oq")
+offset = Vector2(92.25, 0)
+texture_scale = 0.4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -150,28 +142,15 @@ libraries = {
 autoplay = "idle"
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+zoom = Vector2(1.5, 1.5)
+position_smoothing_enabled = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-visible = false
 scale = Vector2(-0.503481, -0.503481)
 polygon = PackedVector2Array(-16, -9, -15, 9, 9, 11, 20, 3, 14, -8, 0, -14)
 
+[node name="Click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_o3ya3")
+
 [node name="Fire" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_u5h54")
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
-offset_left = 248.0
-offset_top = -156.0
-offset_right = 314.0
-offset_bottom = -92.0
-value = 24.0
-fill_mode = 3
-texture_progress = ExtResource("7_42gxb")
-
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_left = 248.0
-offset_top = -156.0
-offset_right = 280.0
-offset_bottom = -92.0
-texture = ExtResource("6_a5g14")

@@ -1,10 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://bm2cjhpsix528"]
+[gd_scene load_steps=15 format=3 uid="uid://dob2cghtloajn"]
 
 [ext_resource type="Texture2D" uid="uid://dkk2bleqqfsjc" path="res://assets/textures/roguelikeSheet_transparent.png" id="1_7mrvj"]
 [ext_resource type="PackedScene" uid="uid://bq5qms0hvqmi1" path="res://core/scenes/characters/Zombie01.tscn" id="2_se5vk"]
-<<<<<<< HEAD
-[ext_resource type="PackedScene" uid="uid://d4kn6jbfhbop" path="res://core/scenes/characters/player.tscn" id="2_sob5o"]
-=======
 [ext_resource type="PackedScene" uid="uid://f3lio3xv046c" path="res://core/scenes/characters/player.tscn" id="2_sob5o"]
 [ext_resource type="Texture2D" uid="uid://tbgo0v3153wc" path="res://assets/textures/light.png" id="4_aahsx"]
 
@@ -49,7 +46,6 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
->>>>>>> 0092ed83ff8bf90faba0bfee7364c5edeabccca5
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_baxp4"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
