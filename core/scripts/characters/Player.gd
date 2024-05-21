@@ -1,18 +1,18 @@
 extends RigidBody2D
 
-@export var aiming_cone_angle = 60.0
-@export var recoil = 100.0
-@export var rotation_force = 0.1
+@export var aiming_cone_angle = 80.0
+@export var recoil = 80.0
+@export var rotation_force = 0.13
 @export var reload_time = 1.6
-@export var linear_friction = 25.0
+@export var linear_friction = 10.0
 @export var angular_friction = 1.0
-@export var tip_toe_interval = 1.0
-@export var tip_toe_impulse = 1.5
+@export var tip_toe_interval = 0.7
+@export var tip_toe_impulse = 2.0
 @export var projectile_scene_path = "res://core/scenes/characters/projectile.tscn"
 @export var fire_animation_time = 0.2
 @export var magazine_size = 2
-@export var pellets_per_shot = 5 
-@export var spread_angle = 10.0
+@export var pellets_per_shot = 10
+@export var spread_angle = 15.0
 
 @onready var chair_sprite = $ChairSprite
 @onready var player_sprite = $ChairSprite/PlayerSprite

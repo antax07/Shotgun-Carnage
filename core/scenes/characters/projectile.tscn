@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://befrkdesm47qc" path="res://assets/textures/bullet.png" id="2_xkyqa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k4r6e"]
-size = Vector2(6.78329, 6.78329)
+size = Vector2(39.4829, 39.4829)
 
 [node name="Projectile" type="Area2D"]
 scale = Vector2(1.5, 1.5)

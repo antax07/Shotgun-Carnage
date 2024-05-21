@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var speed = 3500.0
+@export var speed = 600.0
 var velocity = Vector2.ZERO
 
 func _ready():
@@ -11,6 +11,5 @@ func _process(delta):
 	position += velocity * delta
 
 func _on_body_entered(body):
-	print(body.name)
 	if body.has_method("take_damage"):
-		body.take_damage(10)
+		body.take_damage(5)
