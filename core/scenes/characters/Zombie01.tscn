@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://b32v25rytlcb8" path="res://assets/audio/sfx/slime_001-[AudioTrimmer.com]-[AudioTrimmer.com].ogg" id="3_b0iss"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ssq05"]
-radius = 2.0
+radius = 7.0
 
 [node name="ZOmbie" type="CharacterBody2D"]
 collision_layer = 2
@@ -17,6 +17,7 @@ position = Vector2(0.21, 0.38)
 texture = ExtResource("2_kifcx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_ssq05")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
