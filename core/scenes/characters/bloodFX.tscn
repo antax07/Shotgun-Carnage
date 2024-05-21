@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://1e83x1wr1u4v"]
+
+[ext_resource type="Texture2D" uid="uid://de2wbj110btn8" path="res://core/scenes/characters/blood.png" id="1_byvsx"]
+[ext_resource type="Script" path="res://core/scenes/characters/bloodFX.gd" id="2_0v0wr"]
+
+[node name="BloodFx" type="CPUParticles2D"]
+amount = 50
+lifetime = 0.2
+explosiveness = 1.0
+texture = ExtResource("1_byvsx")
+spread = 42.76
+gravity = Vector2(0, 0)
+initial_velocity_max = 350.0
+angular_velocity_min = -161.05
+angular_velocity_max = 85.26
+scale_amount_min = 0.5
+scale_amount_max = 2.0
+color = Color(0.929412, 0.0313726, 0, 1)
+script = ExtResource("2_0v0wr")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

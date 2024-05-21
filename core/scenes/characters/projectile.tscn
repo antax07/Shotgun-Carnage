@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+[gd_scene load_steps=4 format=3 uid="uid://dh8h47trnuyh4"]
+=======
 [gd_scene load_steps=5 format=3 uid="uid://cbvkqrdd6yl"]
+>>>>>>> 5211a35ab3cbc595299a5b69d7f99e826b23a7e9
 
 [ext_resource type="Script" path="res://core/scripts/characters/projectile.gd" id="1_ju045"]
 [ext_resource type="Texture2D" uid="uid://bupjexoj4ntax" path="res://assets/textures/bullet.png" id="2_xe4qr"]
@@ -9,6 +13,8 @@ size = Vector2(1.33333, 1.33333)
 
 [node name="Projectile" type="Area2D"]
 scale = Vector2(1.5, 1.5)
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_ju045")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
