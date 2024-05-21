@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dkk2bleqqfsjc" path="res://assets/textures/roguelikeSheet_transparent.png" id="1_7mrvj"]
 [ext_resource type="PackedScene" uid="uid://bq5qms0hvqmi1" path="res://core/scenes/characters/Zombie01.tscn" id="2_se5vk"]
-[ext_resource type="PackedScene" uid="uid://f3lio3xv046c" path="res://core/scenes/characters/player.tscn" id="2_sob5o"]
+[ext_resource type="PackedScene" uid="uid://d4kn6jbfhbop" path="res://core/scenes/characters/player.tscn" id="2_sob5o"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_baxp4"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)

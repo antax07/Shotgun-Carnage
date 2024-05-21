@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnjj4yurcuq8w"
-path="res://.godot/imported/muzzle_flash.png-c673896b7a6c986a46cdcc2e6915008a.ctex"
+uid="uid://duhy6bwlgux5x"
+path="res://.godot/imported/blood_tank_ui.png-886b67983a5267b826085b6447e3309d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/muzzle_flash.png"
-dest_files=["res://.godot/imported/muzzle_flash.png-c673896b7a6c986a46cdcc2e6915008a.ctex"]
+source_file="res://assets/textures/blood_tank_ui.png"
+dest_files=["res://.godot/imported/blood_tank_ui.png-886b67983a5267b826085b6447e3309d.ctex"]
 
 [params]
 

@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://dh8h47trnuyh4"]
 
-[ext_resource type="Texture2D" uid="uid://dl4vx30km3v42" path="res://icon.svg" id="1_4vh75"]
 [ext_resource type="Script" path="res://core/scripts/characters/projectile.gd" id="1_ju045"]
+[ext_resource type="Texture2D" uid="uid://befrkdesm47qc" path="res://assets/textures/bullet.png" id="2_xkyqa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k4r6e"]
-size = Vector2(2, 2)
+size = Vector2(6.78329, 6.78329)
 
 [node name="Projectile" type="Area2D"]
 scale = Vector2(1.5, 1.5)
@@ -13,11 +13,14 @@ collision_mask = 2
 script = ExtResource("1_ju045")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.275696, 0.275696)
+scale = Vector2(0.115275, 0.115275)
 shape = SubResource("RectangleShape2D_k4r6e")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 0, 1)
-scale = Vector2(0.015625, 0.015625)
-texture = ExtResource("1_4vh75")
+position = Vector2(0.275521, 0.275521)
+scale = Vector2(0.195573, 0.195573)
+texture = ExtResource("2_xkyqa")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
