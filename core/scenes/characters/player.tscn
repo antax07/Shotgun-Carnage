@@ -1,0 +1,177 @@
+[gd_scene load_steps=18 format=3 uid="uid://f3lio3xv046c"]
+
+[ext_resource type="Script" path="res://core/scripts/characters/Player.gd" id="1_dint0"]
+[ext_resource type="Texture2D" uid="uid://cu1nb352abg4u" path="res://assets/textures/shopingcart.png" id="2_uid8l"]
+[ext_resource type="Texture2D" uid="uid://btkq81krru4lw" path="res://assets/textures/player_atlas2-sheet.png" id="3_0f4ot"]
+[ext_resource type="Texture2D" uid="uid://bnjj4yurcuq8w" path="res://assets/textures/muzzle_flash.png" id="4_bucvw"]
+[ext_resource type="AudioStream" uid="uid://cxgll47lqel1r" path="res://assets/audio/sfx/shotgun.mp3" id="5_u5h54"]
+[ext_resource type="Texture2D" uid="uid://duhy6bwlgux5x" path="res://assets/textures/blood_tank_ui.png" id="6_a5g14"]
+[ext_resource type="Texture2D" uid="uid://dwc0h0lmsn11b" path="res://assets/textures/blood_tank_blood_ui1.png" id="7_42gxb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oeia2"]
+atlas = ExtResource("2_uid8l")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pimet"]
+atlas = ExtResource("2_uid8l")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hoohi"]
+atlas = ExtResource("2_uid8l")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5x7r"]
+atlas = ExtResource("2_uid8l")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_peqwt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oeia2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pimet")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hoohi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5x7r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_fqic1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ChairSprite/PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ca46h"]
+resource_name = "fire"
+length = 0.4
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ChairSprite/PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 3]
+}
+
+[sub_resource type="Animation" id="Animation_l40bs"]
+resource_name = "idle"
+length = 0.6
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ChairSprite/PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_kra37"]
+resource_name = "reload"
+length = 1.6
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ChairSprite/PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 7, 8, 9, 10]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qqyyj"]
+_data = {
+"RESET": SubResource("Animation_fqic1"),
+"fire": SubResource("Animation_ca46h"),
+"idle": SubResource("Animation_l40bs"),
+"reload": SubResource("Animation_kra37")
+}
+
+[node name="Player" type="RigidBody2D"]
+z_index = 10
+gravity_scale = 0.0
+script = ExtResource("1_dint0")
+
+[node name="ChairSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_peqwt")
+autoplay = "default"
+
+[node name="PlayerSprite" type="Sprite2D" parent="ChairSprite"]
+position = Vector2(8.615, 0)
+scale = Vector2(1.00048, 0.992975)
+texture = ExtResource("3_0f4ot")
+hframes = 2
+vframes = 6
+
+[node name="MuzzleFlash" type="Sprite2D" parent="ChairSprite/PlayerSprite"]
+position = Vector2(21.4243, 2.56358)
+scale = Vector2(0.0463513, 0.0439184)
+texture = ExtResource("4_bucvw")
+
+[node name="MuzzleTip" type="Marker2D" parent="ChairSprite/PlayerSprite"]
+position = Vector2(16.3771, 2.01408)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qqyyj")
+}
+autoplay = "idle"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+scale = Vector2(-0.503481, -0.503481)
+polygon = PackedVector2Array(-16, -9, -15, 9, 9, 11, 20, 3, 14, -8, 0, -14)
+
+[node name="Fire" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_u5h54")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = 248.0
+offset_top = -156.0
+offset_right = 314.0
+offset_bottom = -92.0
+value = 100.0
+fill_mode = 3
+texture_progress = ExtResource("7_42gxb")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 248.0
+offset_top = -156.0
+offset_right = 280.0
+offset_bottom = -92.0
+texture = ExtResource("6_a5g14")
