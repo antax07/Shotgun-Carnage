@@ -1,8 +1,7 @@
-[gd_scene load_steps=24 format=3 uid="uid://t1tq6fh0tkyi"]
+[gd_scene load_steps=23 format=3 uid="uid://t1tq6fh0tkyi"]
 
 [ext_resource type="Texture2D" uid="uid://cv7nxaygasdx8" path="res://assets/textures/tilemap.png" id="1_oondd"]
 [ext_resource type="PackedScene" uid="uid://du6s5pqinxoyi" path="res://core/scenes/characters/player.tscn" id="2_s18gm"]
-[ext_resource type="PackedScene" uid="uid://bq5qms0hvqmi1" path="res://core/scenes/characters/Zombie01.tscn" id="3_rv8wa"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_qr3do"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -3718,43 +3717,3 @@ layer_1/tile_data = PackedInt32Array(2686981, 2031618, 20, 2752517, 2031618, 21,
 
 [node name="Player" parent="." instance=ExtResource("2_s18gm")]
 position = Vector2(364, 700)
-
-[node name="ZOmbie" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_rv8wa")]
-position = Vector2(593, 1105)
-player = NodePath("../Player")
-
-[node name="ZOmbie2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_rv8wa")]
-position = Vector2(49, 1068)
-player = NodePath("../Player")
-
-[node name="ZOmbie3" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_rv8wa")]
-position = Vector2(1431, 316)
-player = NodePath("../Player")
-
-[node name="ZOmbie4" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_rv8wa")]
-position = Vector2(1107, 838)
-player = NodePath("../Player")
-
-[node name="ZOmbie5" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_rv8wa")]
-position = Vector2(1129, 360)
-player = NodePath("../Player")
-
-[node name="ZOmbie6" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_rv8wa")]
-position = Vector2(2167, 1012)
-player = NodePath("../Player")
-
-[node name="ZOmbie7" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_rv8wa")]
-position = Vector2(2223, 868)
-player = NodePath("../Player")
-
-[node name="ZOmbie8" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_rv8wa")]
-position = Vector2(2199, 278)
-player = NodePath("../Player")
-
-[node name="ZOmbie9" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_rv8wa")]
-position = Vector2(1419, 1056)
-player = NodePath("../Player")
-
-[node name="ZOmbie10" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_rv8wa")]
-position = Vector2(1051, 1068)
-player = NodePath("../Player")
